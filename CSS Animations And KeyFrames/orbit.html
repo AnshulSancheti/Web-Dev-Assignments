@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbit Animation</title>
+    <style>
+        /* Basic Reset and Body Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Center the animation container on the page */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Background color has been removed */
+        }
+
+        /* The main container that holds both balls */
+        .orbit-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* The large, stationary ball in the center */
+        .center-ball {
+            width: 80px;
+            height: 80px;
+            background-color: #000000; /* Changed to black */
+            border-radius: 50%; /* Makes the div a circle */
+            /* The box-shadow (glow) has been removed */
+        }
+
+        /* The smaller ball that will orbit */
+        .orbiting-ball {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            
+            width: 25px;
+            height: 25px;
+            background-color: #4db8ff;
+            border-radius: 50%;
+            
+            transform-origin: center center;
+
+            animation: orbit 6s linear infinite;
+        }
+
+        /* The keyframes that define the animation steps */
+        @keyframes orbit {
+            from {
+                transform: rotate(0deg) translateX(120px) rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg) translateX(120px) rotate(-360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="orbit-container">
+        <div class="center-ball"></div>
+        <div class="orbiting-ball"></div>
+    </div>
+</body>
+</html>
